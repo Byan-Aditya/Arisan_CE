@@ -60,12 +60,41 @@
       padding-left: 15px;
       padding-right: 15px;
     }
-
+    
     .content a {
       color: blue;
       font-size: 18px;
       word-break: break-all;
     }
+    
+    .sheet-footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #1e1e1e;
+      padding: 10px;
+      text-align: center;
+      border-top: 1px solid #ccc;
+      box-shadow: 0 -6px 9px rgba(0,0,0,0.3);
+      font-size: 14px;
+    }
+    
+    .sheet-name {
+      font-weight: bold;
+      color: #FFFF;
+    }
+    
+    .datetime {
+      margin-top: 4px;
+      color: #FFFF;
+    }
+    
+    body {
+      margin: 0;
+      padding-bottom: 60px; /* beri ruang agar tidak tertutup footer */
+      font-family: Arial, sans-serif;
+    }
+    
   </style>
 </head>
 <body>
@@ -84,7 +113,22 @@
       <iframe src="https://docs.google.com/spreadsheets/d/1KxJR5NSWUlyqS_vVkQcf-AjBrVZ9JYX1r5bQBX8PiDs/edit?usp=sharing" 
         width="100%" height="600"></iframe>
     </div>
+    <div class="sheet-footer">
+     <div class="sheet-name">اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ</div>
+     <div class="datetime" id="datetime">Memuat waktu...</div>
+    </div>
+    <script>
+      function updateDateTime() {
+      const now = new Date();
+      const options = {
+      weekday: 'long', year: 'numeric', month: 'long',
+      day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'
+      };
+      document.getElementById('datetime').textContent = now.toLocaleString('id-ID', options);
+    }
+      setInterval(updateDateTime, 1000); // update tiap detik
+    updateDateTime(); // jalankan pertama kali
+    </script>  
   </main>
-
 </body>
 </html>
