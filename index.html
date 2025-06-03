@@ -17,29 +17,27 @@
       top: 0;
       background-color: #1e1e1e;
       color: white;
-      display: flex;
-      align-items: center;
-      padding: 15px 15px;
-      height: 35px;
+      padding: 10px 0;
+      z-index: 1000;
       box-shadow: 0 6px 9px rgba(0, 0, 0, 0.3);
     }
-
-    header img {
-      margin-right: 15px;
-      width: 20px;
-      height: 20px;
+  
+    .header-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .header-container img {
+      height: 50px;
       border-radius: 50%;
       border: 2.5px solid #ffffff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      object-fit: cover;
     }
-
-    header h1 {
-      font-size: 20px;
-      margin: 0;
-      padding: 20px 20px;
-      align-items: center;
-       
+  
+    .header-container h1 {
+      margin: 0px;
+      font-size: 25px;
     }
 
     main {
@@ -95,22 +93,52 @@
       font-family: Arial, sans-serif;
     }
     
+    .rainbow-text {
+      font-size: 40px;
+      font-weight: bold;
+      background: linear-gradient(
+      90deg,
+      cyan,
+      white, 
+      orange,
+      cyan,      
+      gold,
+      yellow, 
+      cyan,
+      pink,  
+      grey, 
+      cyan,
+      purple,
+      violet,
+      cyan
+      );
+      background-size: 500% 200%;
+      background-repeat: repeat;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: pelangi 7s linear infinite;
+    }
+    @keyframes pelangi {
+      0%   { background-position: 0% 0%; }
+      100% { background-position: 100% 0%; }
+    }
+    
   </style>
 </head>
 <body>
 
   <!-- HEADER -->
   <header>
-    <h1>
-      <img src="logo.png" alt="Logo Arisan CE" style="width:50px; height:50px; border-radius: 50%;">
-    </h1>
-    <h2>𝓣𝓱𝓮 𝓑𝓲𝓵𝓵𝓲𝓸𝓷𝓪𝓲𝓻𝓮'𝓼 𝓒𝓵𝓾𝓫</h2>
+    <div class="header-container">
+      <img src="logo.png" alt="Logo">
+      <h1 class="rainbow-text">𝓣𝓱𝓮 𝓑𝓲𝓵𝓵𝓲𝓸𝓷𝓪𝓲𝓻𝓮'𝓼 𝓒𝓵𝓾𝓫</h1>
+    </div>
   </header>
 
   <!-- ISI -->
   <main>
     <div class="content">
-      <iframe src="https://docs.google.com/spreadsheets/d/1KxJR5NSWUlyqS_vVkQcf-AjBrVZ9JYX1r5bQBX8PiDs/edit?usp=sharing" 
+      <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2MgQFcfl6CCFpMXBqIutnGkdnDItIWdRai4bVOCLiWSp-mWt8DaW5GDVwBLnSpfhaDSlFrwxqfDXL/pubhtml?widget=true&amp;headers=false" 
         width="100%" height="600"></iframe>
     </div>
     <div class="sheet-footer">
@@ -127,7 +155,7 @@
       document.getElementById('datetime').textContent = now.toLocaleString('id-ID', options);
     }
       setInterval(updateDateTime, 1000); // update tiap detik
-    updateDateTime(); // jalankan pertama kali
+      updateDateTime(); // jalankan pertama kali
     </script>  
   </main>
 </body>
