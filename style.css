@@ -10,7 +10,7 @@
       top: 0;
       background-color: #1e1e1e;
       color: white;
-      padding: 7px 7px;
+      padding: 10px 10px;
       z-index: 1000;
       box-shadow: 0 6px 9px rgba(0, 0, 0, 0.3);
     }
@@ -142,19 +142,19 @@
      border-radius: 50%;
      border: 2px solid #ffffff;
      box-shadow:
-     0 0 10px red,
-     0 0 15px green,
-     0 0 20px cyan;
+     0 0 2px red,
+     0 0 6px green,
+     0 0 10px cyan;
      object-fit: cover;
      animation: rgbGlow 4s infinite linear;
      }
   
      @keyframes rgbGlow {
-     0%   { box-shadow: 0 0 10px cyan, 0 0 15px green, 0 0 20px blue; }
-     25%  { box-shadow: 0 0 12px green, 0 0 18px blue, 0 0 22px red; }
-     50%  { box-shadow: 0 0 14px cyan, 0 0 20px red, 0 0 24px green; }
-     75%  { box-shadow: 0 0 12px red, 0 0 18px green, 0 0 22px blue; }
-     100% { box-shadow: 0 0 10px cyan, 0 0 15px green, 0 0 20px blue; }
+     0%   { box-shadow: 0 0 2px cyan, 0 0 5px green, 0 0 8px blue; }
+     25%  { box-shadow: 0 0 4px green, 0 0 7px blue, 0 0 10px red; }
+     50%  { box-shadow: 0 0 6px cyan, 0 0 9px red, 0 0 12px green; }
+     75%  { box-shadow: 0 0 4px red, 0 0 7px green, 0 0 10px blue; }
+     100% { box-shadow: 0 0 2px cyan, 0 0 5px green, 0 0 8px blue; }
       }
 
     .fotoframe {
