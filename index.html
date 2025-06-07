@@ -21,13 +21,15 @@
           tombol.addEventListener('click', () => {
           if (music.paused) 
             { music.play();
-              fotomuter.style.animationPlayState = 'running';
-              tombol.textContent = '⏸️';
+            fotomuter.style.animationPlayState = 'running';
+            icon.src = "pause.png";
+            icon.alt = "Pause";
             } 
           else {
             music.pause();
             fotomuter.style.animationPlayState = 'paused';
-            tombol.textContent = '▶️';
+            icon.src = "play.png";
+            icon.alt = "Play";
             }
             });
         </script>
