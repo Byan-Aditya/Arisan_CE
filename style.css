@@ -77,10 +77,10 @@
       white,
       grey,
       cyan,
-      white, /* <– duplikat awal */
+      white,
       grey,
       cyan
-    );
+      );
       background-size: 500% 100%;
       background-repeat: repeat;
       -webkit-background-clip: text;
@@ -147,15 +147,15 @@
      0 0 10px cyan;
      object-fit: cover;
      animation: rgbGlow 4s infinite linear;
-     }
+    }
   
-     @keyframes rgbGlow {
+    @keyframes rgbGlow {
      0%   { box-shadow: 0 0 2px cyan, 0 0 5px green, 0 0 8px blue; }
      25%  { box-shadow: 0 0 4px green, 0 0 7px blue, 0 0 10px red; }
      50%  { box-shadow: 0 0 6px cyan, 0 0 9px red, 0 0 12px green; }
      75%  { box-shadow: 0 0 4px red, 0 0 7px green, 0 0 10px blue; }
      100% { box-shadow: 0 0 2px cyan, 0 0 5px green, 0 0 8px blue; }
-      }
+    }
 
     .fotoframe {
      position: absolute;
@@ -172,7 +172,7 @@
      animation-play-state: paused;
      transform-origin: center;
      background: no-repeat center center;
-     }
+    }
     
     @keyframes muterTerus {
      from { transform: rotate(0deg); }
