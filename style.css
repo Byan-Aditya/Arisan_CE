@@ -1,3 +1,4 @@
+    @media (max-width: 768px) {
       body {
       margin: 0;
       font-family: sans-serif;
@@ -135,48 +136,51 @@
     }
     
     .foto-rgb {
-     z-index: 1;
-     position: relative;
-     width: 50px;
-     height: 50px;
-     border-radius: 50%;
-     border: 2px solid #8a8a8a;
-     box-shadow:
-     0 0 2px red,
-     0 0 6px green,
-     0 0 10px cyan;
-     object-fit: cover;
-     animation: rgbGlow 4s infinite linear;
-    }
-  
-    @keyframes rgbGlow {
-     0%   { box-shadow: 0 0 2px cyan, 0 0 5px green, 0 0 8px blue; }
-     25%  { box-shadow: 0 0 4px green, 0 0 7px blue, 0 0 10px red; }
-     50%  { box-shadow: 0 0 6px cyan, 0 0 9px red, 0 0 12px green; }
-     75%  { box-shadow: 0 0 4px red, 0 0 7px green, 0 0 10px blue; }
-     100% { box-shadow: 0 0 2px cyan, 0 0 5px green, 0 0 8px blue; }
+      position: relative;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid #8a8a8a;
+      box-shadow:
+        0 0 2px red,
+        0 0 6px green,
+        0 0 10px cyan;
+      animation: rgbGlow 4s infinite linear;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    .fotoframe {
-     position: absolute;
-     z-index: 2;
-     height: 50px;
-     width: 50px;
-     border-radius: 50%;
+    @keyframes rgbGlow {
+      0%   { box-shadow: 0 0 2px cyan, 0 0 5px green, 0 0 8px blue; }
+      25%  { box-shadow: 0 0 4px green, 0 0 7px blue, 0 0 10px red; }
+      50%  { box-shadow: 0 0 6px cyan, 0 0 9px red, 0 0 12px green; }
+      75%  { box-shadow: 0 0 4px red, 0 0 7px green, 0 0 10px blue; }
+      100% { box-shadow: 0 0 2px cyan, 0 0 5px green, 0 0 8px blue; }
     }
 
     .fotomuter {
-     height: 50px;
-     width: 50px;
-     animation: muterTerus 5s linear infinite;
-     animation-play-state: paused;
-     transform-origin: center;
-     background: no-repeat center center;
+      height: 100%;
+      width: 100%;
+      animation: muterTerus 5s linear infinite;
+      animation-play-state: paused;
+      transform-origin: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    
+
     @keyframes muterTerus {
-     from { transform: rotate(0deg); }
-     to { transform: rotate(360deg); }
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .fotoframe {
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     #playPauseBtn {
@@ -190,4 +194,5 @@
      color: white;
      border: none;
      cursor: pointer;
+    }
     }
