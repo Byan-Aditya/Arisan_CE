@@ -12,9 +12,9 @@
   <header>
     <div class="header-container">
       <div class="foto-rgb">
-        <audio id="music" src="lagu.mp3" loop></audio>
+        <audio id="music" src="music/lagu.mp3" loop></audio>
         <button id="playPauseBtn">
-          <img id="icon" src="play.png" alt="Play" width="25" />
+          <img id="icon" src="images/play.png" alt="Play" width="25" />
         </button>
         <script>
           const foto = document.getElementById('fotomuter')
@@ -24,19 +24,19 @@
           if (music.paused) 
             { music.play();
             fotomuter.style.animationPlayState = 'running';
-            icon.src = "pause.png";
+            icon.src = "images/pause.png";
             icon.alt = "Pause";
             } 
           else {
             music.pause();
             fotomuter.style.animationPlayState = 'paused';
-            icon.src = "play.png";
+            icon.src = "images/play.png";
             icon.alt = "Play";
             }
             });
         </script>
         <div class="fotomuter" id="fotomuter">
-          <img class="fotoframe" src="logo.png">
+          <img class="fotoframe" src="images/logo.png">
         </div>
       </div>
       <h1 class="rainbow-text">𝓣𝓱𝓮 𝓑𝓲𝓵𝓵𝓲𝓸𝓷𝓪𝓲𝓻𝓮'𝓼 𝓒𝓵𝓾𝓫</h1>
