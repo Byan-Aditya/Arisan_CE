@@ -147,50 +147,6 @@
       font-family: "Times New Roman", Times, serif;
       font-weight: bold;
     }
-    
-    /* Default (light mode) */
-    .rainbow-text {
-      font-size: 35px;
-      font-weight: bold;
-      background: linear-gradient(
-        90deg,
-        #ff0000,   /* merah */
-        #ff7f00,   /* oranye */
-        #bfbf19,   /* kuning */
-        #1aba1a,   /* hijau */
-        #0000ff,   /* biru */
-        #4b0082,   /* indigo */
-        #8b00ff,   /* ungu */
-        #ff0000    /* balik ke merah (biar looping halus) */
-      );
-      background-size: 400% 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: pelangi 7s linear infinite;
-    }
-    
-    /* Dark mode */
-    :root[data-theme="dark"] .rainbow-text {
-      background: linear-gradient(
-        90deg,
-        #00ffff,  /* cyan */
-        #ff00ff,  /* magenta */
-        #ffff00,  /* kuning neon */
-        #ff1493,  /* pink neon */
-        #00ff00,  /* hijau neon */
-        #ffa500,  /* oranye terang */
-        #1e90ff,  /* biru neon */
-        #00ffff   /* balik ke cyan (biar looping halus) */
-      );
-      background-size: 400% 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    @keyframes pelangi {
-      0%   { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
 
     .foto-rgb {
       position: relative;
