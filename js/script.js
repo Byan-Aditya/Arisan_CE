@@ -37,3 +37,75 @@ updateDateTime();
     setDark(!isDark);
   });
 })();
+
+// === aplikasi===
+const CACHE_NAME = "Arisan-cache-auto";
+
+// file inti supaya offline bisa jalan
+const PRECACHE_FILES = [
+  "/index.html",
+  "/css/style.css",
+  "/css/dark_mode.css",
+  "/js/script.js"
+  // bisa tambah file inti lainnya
+];
+
+self.addEventListener("install", event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(PRECACHE_FILES))
+      .then(() => self.skipWaiting())
+  );
+});
+
+self.addEventListener("activate", event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
+      )
+    )
+  );
+  self.clients.claim();
+});
+
+self.addEventListener("fetch", event => {
+  event.respondWith(
+    caches.match(event.request).then(cachedRes => {
+      if (cachedRes) return cachedRes;
+
+      // dynamic caching: file baru otomatis masuk cache
+      return fetch(event.request)
+        .then(fetchRes => {
+          if (event.request.url.startsWith("http") && fetchRes && fetchRes.status === 200 && fetchRes.type === "basic") {
+            caches.open(CACHE_NAME).then(cache => cache.put(event.request, fetchRes.clone()));
+          }
+          return fetchRes;
+        })
+        .catch(() => caches.match("/index.html")) // fallback offline
+    })
+  );
+});
+
+
+
+
+    function updateThemeColor() {
+      const header = document.getElementById("header");
+      const metaThemeColor = document.querySelector("meta[name=theme-color]");
+      
+      // cek warna background header
+      const bgColor = window.getComputedStyle(header).backgroundColor;
+      
+      // update meta
+      if (metaThemeColor) {
+        metaThemeColor.setAttribute("content", bgColor);
+      }
+    }
+
+    // jalan pas halaman load
+    window.addEventListener("load", updateThemeColor);
+    
+    // misal header warnane iso berubah (dark mode, scroll dsb)
+    const observer = new MutationObserver(updateThemeColor);
+    observer.observe(document.getElementById("header"), { attributes: true, attributeFilter: ["style", "class"] });
