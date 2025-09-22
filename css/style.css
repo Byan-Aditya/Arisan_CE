@@ -47,8 +47,8 @@
     }
     
     .header-container h1 {
-      padding-bottom: 5px;
-      font-size: 23px;
+      font-size: 20px;
+      line-height: 1.2;  /* jarak antar baris, bisa disetel */
     }
     
     /* MAIN (isi bisa scroll) */
@@ -251,6 +251,49 @@
       cursor: pointer;
     }
     
+    .fredericka-the-great-regular {
+      font-family: "Fredericka the Great", serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 40px;
+      line-height: 1.4;
+      display: inline-flex;
+      flex-direction: column;  /* biar vertikal */
+      align-items: center;     /* rata tengah */
+    }
+
+    .fredericka-the-great-regular .line {
+      display: inline-block;
+    }
+
+    .fredericka-the-great-regular .divider {
+      height: 1px;
+      margin: 0.5px 0;
+      border-radius: 0.5px;
+      align-self: stretch;
+
+      /* pola lurus horizontal */
+      background: repeating-linear-gradient(
+        to right,     /* lurus ke samping */
+        white 0px,
+        white 20px,
+        blue 20px,
+        blue 40px,
+        white 40px,
+        white 60px,
+        red 60px,
+        red 80px
+      );
+
+      background-size: 80px 100%; /* ulangi pola sepanjang lebar */
+      animation: barber 2s linear infinite;
+    }
+
+    @keyframes barber {
+      from { background-position: 0 0; }
+      to   { background-position: 80px 0; }
+    }
+
     .frame-exel {
       height: 100vh;
       padding-top: 85px;
