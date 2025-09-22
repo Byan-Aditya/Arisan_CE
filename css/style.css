@@ -227,8 +227,23 @@
       margin: 0.5px 0;
       border-radius: 0.5px;
       align-self: stretch;
-
       /* pola lurus horizontal */
+      background: repeating-linear-gradient(
+        to right,     /* lurus ke samping */
+        cyan 0px,
+        cyan 20px,
+        blue 20px,
+        blue 40px,
+        cyan 40px,
+        cyan 60px,
+        red 60px,
+        red 80px
+      );
+      background-size: 80px 100%; /* ulangi pola sepanjang lebar */
+      animation: barber 2s linear infinite;
+      transition: background var(--transition);
+    }
+    :root[data-theme="dark"] .fredericka-the-great-regular .divider {
       background: repeating-linear-gradient(
         to right,     /* lurus ke samping */
         white 0px,
@@ -240,7 +255,6 @@
         red 60px,
         red 80px
       );
-
       background-size: 80px 100%; /* ulangi pola sepanjang lebar */
       animation: barber 2s linear infinite;
     }
