@@ -257,25 +257,3 @@
       padding-left: 10px;
       padding-right: 10px;
     }
-
-
-body {
-  margin: 0;
-  padding-top: env(safe-area-inset-top); /* ngindari ketutupan notch */
-}
-
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 56px; /* sesuaikan */
-  background: rgba(0, 0, 0, 0.5); /* semi transparan */
-  backdrop-filter: blur(10px);     /* efek blur kaya Spotify */
-  -webkit-backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  padding: 0 16px;
-  color: white;
-}
-
