@@ -64,7 +64,7 @@
       margin-top: 75px;   /* biar tidak ketutupan header */
       margin-bottom: 75px;/* biar tidak ketutupan footer */
       padding-left: 10px;
-      padding-right: 15px;
+      padding-right: 13px;
       height: 100vh;
     }
 
@@ -274,4 +274,4 @@
     @keyframes barber {
       from { background-position: 0 0; }
       to   { background-position: 80px 0; }
-          }
+    }
