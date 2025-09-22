@@ -11,12 +11,12 @@
   "version": "1.1",
   "icons": [
     {
-      "src": "aplikasi/web-app-manifest-192x192.png",
+      "src": "aplikasi/icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "aplikasi/web-app-manifest-512x512.png",
+      "src": "aplikasi/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
