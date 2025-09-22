@@ -17,10 +17,19 @@ updateDateTime();
 (function(){
   const root = document.documentElement;
   const toggle = document.getElementById('themeToggle');
+  const metaTheme = document.querySelector('meta[name=theme-color]');
+  const header = document.getElementById('header');
+
+  function syncThemeColor() {
+    if (!header || !metaTheme) return;
+    const bg = getComputedStyle(header).backgroundColor;
+    metaTheme.setAttribute('content', bg);
+  }
 
   const saved = localStorage.getItem('site-theme');
   if(saved==='dark') root.setAttribute('data-theme','dark');
   if(saved==='light') root.removeAttribute('data-theme');
+  syncThemeColor();
 
   function setDark(dark){
     if(dark){
@@ -30,12 +39,20 @@ updateDateTime();
       root.removeAttribute('data-theme');
       localStorage.setItem('site-theme','light');
     }
+    syncThemeColor();
   }
 
-  toggle.addEventListener('click',()=>{
-    const isDark = root.getAttribute('data-theme')==='dark';
-    setDark(!isDark);
-  });
+  if (toggle) {
+    toggle.addEventListener('click',()=>{
+      const isDark = root.getAttribute('data-theme')==='dark';
+      setDark(!isDark);
+    });
+  }
+
+  if (header) {
+    const observer = new MutationObserver(syncThemeColor);
+    observer.observe(header, { attributes: true, attributeFilter: ["class","style"] });
+  }
 })();
 
 // === aplikasi===
@@ -86,26 +103,3 @@ self.addEventListener("fetch", event => {
     })
   );
 });
-
-
-
-
-    function updateThemeColor() {
-      const header = document.getElementById("header");
-      const metaThemeColor = document.querySelector("meta[name=theme-color]");
-      
-      // cek warna background header
-      const bgColor = window.getComputedStyle(header).backgroundColor;
-      
-      // update meta
-      if (metaThemeColor) {
-        metaThemeColor.setAttribute("content", bgColor);
-      }
-    }
-
-    // jalan pas halaman load
-    window.addEventListener("load", updateThemeColor);
-    
-    // misal header warnane iso berubah (dark mode, scroll dsb)
-    const observer = new MutationObserver(updateThemeColor);
-    observer.observe(document.getElementById("header"), { attributes: true, attributeFilter: ["style", "class"] });
