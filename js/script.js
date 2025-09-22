@@ -17,25 +17,43 @@ updateDateTime();
 (function(){
   const root = document.documentElement;
   const toggle = document.getElementById('themeToggle');
+  const metaTheme = document.querySelector('meta[name=theme-color]');
+  const header = document.getElementById('header');
+
+  function syncThemeColor() {
+    if (!header || !metaTheme) return;
+    const bg = getComputedStyle(header).backgroundColor;
+    metaTheme.setAttribute('content', bg);
+  }
 
   const saved = localStorage.getItem('site-theme');
   if(saved==='dark') root.setAttribute('data-theme','dark');
   if(saved==='light') root.removeAttribute('data-theme');
+  syncThemeColor();
 
   function setDark(dark){
     if(dark){
       root.setAttribute('data-theme','dark');
       localStorage.setItem('site-theme','dark');
+      metaTheme.setAttribute('content', '#000000'); // ireng pas dark
     } else {
       root.removeAttribute('data-theme');
       localStorage.setItem('site-theme','light');
+      metaTheme.setAttribute('content', '#ffffff'); // putih pas light
     }
   }
 
-  toggle.addEventListener('click',()=>{
-    const isDark = root.getAttribute('data-theme')==='dark';
-    setDark(!isDark);
-  });
+  if (toggle) {
+    toggle.addEventListener('click',()=>{
+      const isDark = root.getAttribute('data-theme')==='dark';
+      setDark(!isDark);
+    });
+  }
+
+  if (header) {
+    const observer = new MutationObserver(syncThemeColor);
+    observer.observe(header, { attributes: true, attributeFilter: ["class","style"] });
+  }
 })();
 
 // === aplikasi===
@@ -86,13 +104,3 @@ self.addEventListener("fetch", event => {
     })
   );
 });
-
-
-function setThemeColor(color){
-  const meta = document.querySelector('meta[name=theme-color]');
-  if(meta) meta.setAttribute('content', color || 'transparent');
-}
-
-// Contoh: nek lagu / halamanmu ganti latar → update
-setThemeColor('transparent'); // transparan kaya Spotify
-
