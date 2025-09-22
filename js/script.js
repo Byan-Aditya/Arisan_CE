@@ -35,13 +35,14 @@ updateDateTime();
     if(dark){
       root.setAttribute('data-theme','dark');
       localStorage.setItem('site-theme','dark');
+      metaTheme.setAttribute('content', '#000000'); // ireng pas dark
     } else {
       root.removeAttribute('data-theme');
       localStorage.setItem('site-theme','light');
+      metaTheme.setAttribute('content', '#ffffff'); // putih pas light
     }
-    syncThemeColor();
   }
-
+  
   if (toggle) {
     toggle.addEventListener('click',()=>{
       const isDark = root.getAttribute('data-theme')==='dark';
