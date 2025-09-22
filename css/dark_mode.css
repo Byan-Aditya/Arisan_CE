@@ -1,3 +1,33 @@
+    /* Hapus outline/focus */
+    .switch:focus, 
+    .switch:active,
+    .switch *:focus,
+    .switch *:active {
+      outline: none !important;
+      box-shadow: none !important; /* optional, ilangke glow */
+    }
+
+    /* Hapus tap highlight di Android/iOS */
+    .switch, 
+    .switch * {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: var(--background-light);
+      transition: background var(--transition);
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: "Times New Roman", Times, serif;
+      overflow: hidden;
+    }
+    :root[data-theme="dark"] body {
+      background: var(--background-dark);
+    }
+    
   :root {
     /*--- HEADER ---*/
     --header-light: rgba(255, 255, 255, 0.5);
