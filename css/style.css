@@ -1,3 +1,7 @@
+    * {
+      -webkit-tap-highlight-color: transparent; /* hapus biru saat tap di mobile */
+    }
+    
     body {
       background: var(--background-light);
       transition: background var(--transition);
