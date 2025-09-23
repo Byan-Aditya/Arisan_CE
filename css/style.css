@@ -1,3 +1,10 @@
+    /* MATENI BLOCK TEXT DI SEMUA ELEMEN WEB */
+    * {
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      -ms-user-select: none !important;
+    }
+
     body {
       background: var(--background-light);
       transition: background var(--transition);
