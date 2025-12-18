@@ -32,7 +32,6 @@
       left: 0;
       right: 0;
       padding: 5px;
-      height: 65px; /* tinggi fix */
       backdrop-filter: blur(6px);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
       border-radius: 0 0 20px 20px;
@@ -55,22 +54,24 @@
     }
     
     .header-container h1 {
-      font-size: 20px;
+      font-size: 30px;
       line-height: 1.2;  /* jarak antar baris, bisa disetel */
+      margin-left: 10px;
+      margin-right: 0px;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
     
     /* MAIN (isi bisa scroll) */
     main {
       flex: 1;
-      margin-top: 10px;   /* biar tidak ketutupan header */
-      margin-bottom: 10px;/* biar tidak ketutupan footer */
       box-sizing: border-box;
       overflow-y: auto;   /* isi bisa discroll */
     }
 
     .frame-exel {
-      margin-top: 75px;   /* biar tidak ketutupan header */
-      margin-bottom: 75px;/* biar tidak ketutupan footer */
+      margin-top: 105px;   /* biar tidak ketutupan header */
+      margin-bottom: 85px;/* biar tidak ketutupan footer */
       padding-left: 10px;
       padding-right: 13px;
       height: 100vh;
@@ -170,8 +171,8 @@
 
     .foto-rgb {
       position: relative;
-      width: 50px;
-      height: 50px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       background: black;
       border: 2px solid #8a8a8a;
@@ -403,4 +404,20 @@
         transform: rotate(360deg);
       }
     }
-        
+
+    @media (max-width: 768px) {
+      .header-container {
+        gap: 5px;
+      }
+    
+      .header-container h1 {
+        font-size: 25px;
+        margin-left: 10px;
+      }
+      
+      .foto-rgb {
+        position: relative;
+        width: 60px;
+        height: 60px;
+      }
+    }
