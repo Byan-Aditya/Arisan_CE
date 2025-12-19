@@ -70,7 +70,7 @@
     }
 
     .frame-exel {
-      margin-top: 105px;   /* biar tidak ketutupan header */
+      margin-top: 120px;   /* biar tidak ketutupan header */
       margin-bottom: 85px;/* biar tidak ketutupan footer */
       padding-left: 10px;
       padding-right: 13px;
@@ -408,6 +408,11 @@
     @media (max-width: 768px) {
       .header-container {
         gap: 5px;
+      }
+
+      .frame-exel {
+        margin-top: 105px;   /* biar tidak ketutupan header */
+        margin-bottom: 85px;/* biar tidak ketutupan footer */
       }
     
       .header-container h1 {
